@@ -29,11 +29,11 @@ static void update_time() {
 
 static void main_window_load(Window * window) {
 	//Create layer for clock with space in the middle
-	s_split_time_layer_left = text_layer_create(GRect(2, 5, 72, 50));
+	s_split_time_layer_left = text_layer_create(GRect(0, 5, 72, 50));
 	text_layer_set_background_color(s_split_time_layer_left, GColorClear);
 	text_layer_set_text_color(s_split_time_layer_left, GColorBlack);
 	
-	s_split_time_layer_right = text_layer_create(GRect(72, 5, 60, 50));
+	s_split_time_layer_right = text_layer_create(GRect(72, 5, 72, 50));
 	text_layer_set_background_color(s_split_time_layer_right, GColorClear);
 	text_layer_set_text_color(s_split_time_layer_right, GColorBlack);
 	
@@ -58,8 +58,8 @@ static void main_window_load(Window * window) {
 	text_layer_set_font(s_nd_layer, s_text_font);
 	text_layer_set_font(s_split_time_layer_left, fonts_get_system_font(FONT_KEY_BITHAM_42_MEDIUM_NUMBERS));
 	text_layer_set_font(s_split_time_layer_right, fonts_get_system_font(FONT_KEY_BITHAM_42_MEDIUM_NUMBERS));
-	text_layer_set_text_alignment(s_split_time_layer_left, GTextAlignmentLeft);
-	text_layer_set_text_alignment(s_split_time_layer_right, GTextAlignmentRight);
+	text_layer_set_text_alignment(s_split_time_layer_left, GTextAlignmentCenter);
+	text_layer_set_text_alignment(s_split_time_layer_right, GTextAlignmentCenter);
 	text_layer_set_overflow_mode(s_nd_layer, GTextOverflowModeWordWrap);
 	text_layer_set_text_alignment(s_nd_layer, GTextAlignmentCenter);
 	

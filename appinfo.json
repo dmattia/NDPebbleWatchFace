@@ -28,6 +28,7 @@
                 "characterRegex": "[A-Za-z.]",
                 "file": "fonts/Birds.ttf",
                 "name": "FONT_BIRD_40",
+                "trackingAdjust": -1,
                 "type": "font"
             },
             {
