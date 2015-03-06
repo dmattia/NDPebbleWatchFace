@@ -3,6 +3,8 @@
 static Window * s_main_window;
 static TextLayer * s_split_time_layer_left;
 static TextLayer * s_split_time_layer_right;
+static TextLayer * s_notre_layer;
+static TextLayer * s_N_layer; //N had strange spacing in the word "Notre"
 static TextLayer * s_nd_layer;
 static GFont s_time_font;
 static GFont s_text_font;
@@ -29,7 +31,7 @@ static void update_time() {
 
 static void main_window_load(Window * window) {
 	//Create layer for clock with space in the middle
-	s_split_time_layer_left = text_layer_create(GRect(0, 5, 72, 50));
+	s_split_time_layer_left = text_layer_create(GRect(0, 5, 63, 50));
 	text_layer_set_background_color(s_split_time_layer_left, GColorClear);
 	text_layer_set_text_color(s_split_time_layer_left, GColorBlack);
 	
@@ -37,11 +39,23 @@ static void main_window_load(Window * window) {
 	text_layer_set_background_color(s_split_time_layer_right, GColorClear);
 	text_layer_set_text_color(s_split_time_layer_right, GColorBlack);
 	
-	//Create layer for Notre Dame
-	s_nd_layer = text_layer_create(GRect(0,82,140,140));
+	//Create layer for Dame
+	s_nd_layer = text_layer_create(GRect(0,124,140,40));
 	text_layer_set_background_color(s_nd_layer, GColorClear);
 	text_layer_set_text_color(s_nd_layer, GColorWhite);
-	text_layer_set_text(s_nd_layer, "Notre Dame");
+	text_layer_set_text(s_nd_layer, "Dame");
+	
+	//Create separate layer for otre (in Notre) as the font has strange spacing
+	s_notre_layer = text_layer_create(GRect(60,80,75,40));
+	text_layer_set_background_color(s_notre_layer, GColorClear);
+	text_layer_set_text_color(s_notre_layer, GColorWhite);
+	text_layer_set_text(s_notre_layer,"otre");
+	
+	//Create spacing for the N
+	s_N_layer = text_layer_create(GRect(23, 80, 100, 40));
+	text_layer_set_background_color(s_N_layer, GColorClear);
+	text_layer_set_text_color(s_N_layer, GColorWhite);
+	text_layer_set_text(s_N_layer,"N");
 	
 	//Create bitmap
 	s_background_bitmap = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_DOME_WB);
@@ -56,20 +70,23 @@ static void main_window_load(Window * window) {
 
 	//set fonts and font styles
 	text_layer_set_font(s_nd_layer, s_text_font);
+	text_layer_set_font(s_notre_layer, s_text_font);
+	text_layer_set_font(s_N_layer, s_text_font);
 	text_layer_set_font(s_split_time_layer_left, fonts_get_system_font(FONT_KEY_BITHAM_42_MEDIUM_NUMBERS));
 	text_layer_set_font(s_split_time_layer_right, fonts_get_system_font(FONT_KEY_BITHAM_42_MEDIUM_NUMBERS));
 	text_layer_set_text_alignment(s_split_time_layer_left, GTextAlignmentCenter);
 	text_layer_set_text_alignment(s_split_time_layer_right, GTextAlignmentCenter);
-	text_layer_set_overflow_mode(s_nd_layer, GTextOverflowModeWordWrap);
 	text_layer_set_text_alignment(s_nd_layer, GTextAlignmentCenter);
-	
-	//APP_LOG(APP_LOG_LEVEL_INFO, "%s", text_layer_get_text(s_split_time_layer_right));
-	
+	text_layer_set_text_alignment(s_notre_layer, GTextAlignmentLeft);
+	text_layer_set_text_alignment(s_N_layer, GTextAlignmentLeft);
+		
 	//add layers to window
 	layer_add_child(window_get_root_layer(window), bitmap_layer_get_layer(s_background_layer));
 	layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_split_time_layer_left));
 	layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_split_time_layer_right));
 	layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_nd_layer));
+	layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_notre_layer));
+	layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_N_layer));
 }
 
 static void main_window_unload(Window * window) {
