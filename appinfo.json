@@ -4,47 +4,23 @@
         ""
     ],
     "companyName": "dmattia@nd.edu",
-    "longName": "Golden Dome",
+    "longName": "Golden Dome Color",
     "projectType": "native",
     "resources": {
         "media": [
             {
                 "file": "images/white_black_dome.png",
-                "name": "IMAGE_DOME_WB",
+                "name": "IMAGE_GOLDEN_DOME",
                 "type": "png"
-            },
-            {
-                "file": "images/color_dome.png",
-                "name": "IMAGE_DOME_IMAGE",
-                "type": "png"
-            },
-            {
-                "characterRegex": "[0-9:.]",
-                "file": "fonts/Lobster 1.4.otf",
-                "name": "FONT_LOBSTER_NUMBERS_80",
-                "type": "font"
-            },
-            {
-                "characterRegex": "[A-Za-z.r]",
-                "file": "fonts/Birds.ttf",
-                "name": "FONT_BIRD_40",
-                "trackingAdjust": -1,
-                "type": "font"
-            },
-            {
-                "characterRegex": "[0-9:.]",
-                "file": "fonts/perfect-dos-vga.ttf",
-                "name": "FONT_PERFECT_DOS_48",
-                "type": "font"
             }
         ]
     },
-    "sdkVersion": "2",
-    "shortName": "Golden Dome",
-    "uuid": "5a9feba2-6167-429b-9640-b1cc83e7572b",
+    "sdkVersion": "3",
+    "shortName": "Golden Dome Color",
+    "uuid": "3a436321-ca44-468f-8bd7-9e425ad5c28c",
     "versionCode": 1,
     "versionLabel": "1.0",
     "watchapp": {
-        "watchface": true
+        "watchface": false
     }
 }
