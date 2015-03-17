@@ -17,10 +17,14 @@
     },
     "sdkVersion": "3",
     "shortName": "Golden Dome Color",
+    "targetPlatforms": [
+        "aplite",
+        "basalt"
+    ],
     "uuid": "3a436321-ca44-468f-8bd7-9e425ad5c28c",
     "versionCode": 1,
     "versionLabel": "1.0",
     "watchapp": {
-        "watchface": false
+        "watchface": true
     }
 }
