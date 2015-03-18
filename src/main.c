@@ -1,5 +1,11 @@
 #include <pebble.h>
-
+	
+#ifdef PBL_COLOR
+	#define TEXT_COLOR GColorWhite
+#else
+	#define TEXT_COLOR GColorBlack
+#endif
+	
 static Window * s_main_window;
 static BitmapLayer * s_background_layer;
 static GBitmap * s_background_bitmap;
@@ -19,22 +25,21 @@ static void update_time() {
 	}
 	strftime(split_buffer_right, sizeof("00"), "%M", tick_time);
 
-	
 	text_layer_set_text(s_hour, split_buffer_left);
 	text_layer_set_text(s_minute, split_buffer_right);
 }
 
-static void main_window_load(Window * window) {
+static void main_window_load(Window * window) {	
 	//Create hour layer
 	s_hour = text_layer_create(GRect(0,5,63,34));
-	text_layer_set_text_color(s_hour, GColorWhite);
+	text_layer_set_text_color(s_hour, TEXT_COLOR);
 	text_layer_set_font(s_hour, fonts_get_system_font(FONT_KEY_BITHAM_34_MEDIUM_NUMBERS));
 	text_layer_set_background_color(s_hour, GColorClear);
 	text_layer_set_text_alignment(s_hour, GTextAlignmentCenter);
 	
 	//Create minute layer
 	s_minute = text_layer_create(GRect(72, 5, 72, 34));
-	text_layer_set_text_color(s_minute, GColorWhite);
+	text_layer_set_text_color(s_minute, TEXT_COLOR);
 	text_layer_set_font(s_minute, fonts_get_system_font(FONT_KEY_BITHAM_34_MEDIUM_NUMBERS));
 	text_layer_set_background_color(s_minute, GColorClear);
 	text_layer_set_text_alignment(s_minute, GTextAlignmentCenter);
